@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chassis_forge/chassis_forge.dart';
 import 'package:rucksack/rucksack.dart';
 import 'package:smart_arg/smart_arg.dart';
@@ -52,8 +54,12 @@ class BuildCommand extends ChassisCommand with HelpOption, VerboseOption {
     if (noCache) {
       extraArgs += ' --no-cache';
     }
+    final context = Directory('.docker_context');
+    if (isFalse(context.existsSync())) {
+      context.createSync();
+    }
     await shell
         .verbose(verbose: verbose) //
-        .run('docker build --progress plain $extraArgs --tag $tag .');
+        .run( 'docker build --progress plain $extraArgs --tag $tag --file Dockerfile .docker_context');
   }
 }
