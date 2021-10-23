@@ -12,3 +12,6 @@ pubspec.lock
 doc/api/
 
 *.dill
+
+.idea/
+*.iml
