@@ -4,11 +4,15 @@ A Docker Development Build and Test Container where Projects are hammered into s
 
 > Anvil: a heavy iron block with a flat top and concave sides, on which metal can be hammered and shaped.
 
+![Docker Pulls](https://img.shields.io/docker/pulls/axrs/anvil?style=for-the-badge)
+
 Base Image [Debian:bullseye-slim](https://hub.docker.com/\_/debian)
 
 ***
 
 ## Tags
+
+A list of all Docker Image Tags can be found at [Docker Hub](https://hub.docker.com/repository/docker/axrs/anvil/tags?page=1\&ordering=-name)
 
 |                     | base                                                                                 | base-java                                                                                 | base-cloud                                                                                 | base-java-cloud                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
@@ -28,4 +32,4 @@ purpose. As you can see, the Cloud infrastructure containers (the ones with the 
 substantially larger than the others. The Docker tool [Dive](https://github.com/wagoodman/dive) can be used to
 investigate the reason for this increase.
 
-> **Spoiler**: Almost 900mb are the CLI tools collectively as Python Packages
+> **Spoiler**: Almost 900mb (uncompressed) are the Azure and AWS CLI tools installed as Python Packages
