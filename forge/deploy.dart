@@ -35,10 +35,12 @@ class DeployCommand extends ChassisCommand with HelpOption {
     _log.info('Building Docker Image');
     final BuildCommand build = BuildCommand() //
       ..withVerbosity(verboseBuild)
-      ..withNoCache(!cached)
-      ..withTagWhenNotEmpty(tag);
+      ..withNoCache(!cached);
     await build.run(shell, parentArguments);
-    _log.info('Deploying Docker Image ${build.tag}');
-    await shell.verbose().run('docker push ${build.tag}');
+    _log.info('Deploying Docker Images. This may take a while...');
+    await shell.verbose().run('docker push axrs/anvil:base');
+    await shell.verbose().run('docker push axrs/anvil:base-cloud');
+    await shell.verbose().run('docker push axrs/anvil:base-java');
+    await shell.verbose().run('docker push axrs/anvil:base-java-cloud');
   }
 }
