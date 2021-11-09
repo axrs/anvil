@@ -28,7 +28,7 @@ _buildDockerContainer(
     context.createSync();
   }
   _log.info('Building axrs/anvil:$tag');
-  await shell.verbose(verbose: verbose) //
+  await shell.verbose(verbose) //
       .run('''
 docker build \\
   --progress plain \\
