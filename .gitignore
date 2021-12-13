@@ -1,10 +1,10 @@
 *.dill
 *.iml
 *.reflectable.dart
+.chassis/
 .dart_tool/
 .idea/
 .packages
 build/
 doc/api/
 node_modules/
-pubspec.lock
