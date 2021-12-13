@@ -6,4 +6,5 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dev_dependencies:
-  chassis_forge: ^0.2.0-dev.1
+  lints: ^1.0.0
+  chassis_forge: ^1.0.1

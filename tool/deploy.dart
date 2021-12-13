@@ -1,6 +1,6 @@
 import 'package:chassis_forge/chassis_forge.dart';
 import 'package:logging/logging.dart';
-import 'package:smart_arg/smart_arg.dart';
+import 'package:chassis_forge/smart_arg.dart';
 
 import 'build.dart';
 
