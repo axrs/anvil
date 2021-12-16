@@ -8,3 +8,4 @@ environment:
 dev_dependencies:
   lints: ^1.0.0
   chassis_forge: ^1.0.1
+  smart_arg_fork: ^2.2.0

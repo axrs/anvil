@@ -4,7 +4,6 @@ import 'package:chassis_forge/smart_arg.dart';
 import 'build.dart';
 import 'deploy.dart';
 import 'format.dart';
-
 // ignore: unused_import
 import 'main.reflectable.dart';
 
@@ -24,13 +23,13 @@ class Forge extends ChassisForge with HelpOption, VerboseOption {
   @HelpArgument()
   late bool help = false;
 
-  @Command(help: 'Builds the docker image')
+  @Command()
   late BuildCommand build;
 
-  @Command(help: 'Deploys the Docker Image to Docker Hub')
+  @Command()
   late DeployCommand deploy;
 
-  @Command(help: 'Formats the various Source codes and Files')
+  @Command()
   late FormatCommand format;
 }
 

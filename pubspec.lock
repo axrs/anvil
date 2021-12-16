@@ -331,12 +331,12 @@ packages:
     source: hosted
     version: "1.0.1"
   smart_arg_fork:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: smart_arg_fork
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.2.0"
   source_span:
     dependency: transitive
     description:
