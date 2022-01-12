@@ -1,13 +1,1 @@
-include: package:lints/recommended.yaml
-
-linter:
-  rules:
-    - unawaited_futures
-    - prefer_single_quotes
-    - require_trailing_commas
-
-analyzer:
-  exclude:
-    - example/*.reflectable.dart
-    - tool/*.reflectable.dart
-    - test/*.reflectable.dart
+include: package:ardour_tech_analysis/analysis_options.yaml

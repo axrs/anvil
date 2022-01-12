@@ -8,22 +8,22 @@ import 'package:rucksack/rucksack.dart';
 final _log = Logger('af:build');
 
 _buildDockerContainer(
-  final IShell shell,
-  final String dockerFile,
-  final String tag, {
-  final bool pull = false,
-  final bool noCache = false,
-  final String? anvilBase,
-  final bool verbose = false,
+  IShell shell,
+  String dockerFile,
+  String tag, {
+  bool pull = false,
+  bool noCache = false,
+  String? anvilBase,
+  bool verbose = false,
 }) async {
-  String extraArgs = '';
+  var extraArgs = '';
   if (pull) {
     extraArgs += ' --pull';
   }
   if (noCache) {
     extraArgs += ' --no-cache';
   }
-  final context = Directory('.docker_context');
+  var context = Directory('.docker_context');
   if (isFalse(context.existsSync())) {
     context.createSync();
   }
@@ -77,7 +77,7 @@ class BuildCommand extends ChassisCommand with HelpOption, VerboseOption {
   }
 
   @override
-  Future<void> run(final IShell shell, final SmartArg parentArguments) async {
+  Future<void> run(IShell shell, SmartArg parentArguments) async {
     shell.requireCommand('docker');
     await _buildDockerContainer(
       shell,

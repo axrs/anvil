@@ -1,6 +1,6 @@
 import 'package:chassis_forge/chassis_forge.dart';
-import 'package:logging/logging.dart';
 import 'package:chassis_forge/smart_arg.dart';
+import 'package:logging/logging.dart';
 
 import 'build.dart';
 
@@ -31,9 +31,9 @@ class DeployCommand extends ChassisCommand with HelpOption {
   late String tag = 'axrs/anvil:latest';
 
   @override
-  Future<void> run(final IShell shell, final SmartArg parentArguments) async {
+  Future<void> run(IShell shell, SmartArg parentArguments) async {
     _log.info('Building Docker Image');
-    final BuildCommand build = BuildCommand() //
+    var build = BuildCommand() //
       ..withVerbosity(verboseBuild)
       ..withNoCache(!cached);
     await build.run(shell, parentArguments);
