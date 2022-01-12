@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:chassis_forge/chassis_forge.dart';
+import 'package:chassis_forge/smart_arg.dart';
 import 'package:logging/logging.dart';
 import 'package:rucksack/rucksack.dart';
-import 'package:chassis_forge/smart_arg.dart';
 
 final _log = Logger('af:build');
 
@@ -29,7 +29,8 @@ _buildDockerContainer(
   }
   _log.info('Building axrs/anvil:$tag');
   await shell.verbose(verbose) //
-      .run('''
+      .run(
+    '''
 docker build \\
   --progress plain \\
   $extraArgs \\
@@ -37,7 +38,8 @@ docker build \\
   --file $dockerFile \\
   ${isNotBlank(anvilBase) ? "--build-arg ANVIL_BASE_TAG=$anvilBase" : ''} \\
   .docker_context
-''',);
+''',
+  );
 }
 
 @SmartArg.reflectable
@@ -77,18 +79,62 @@ class BuildCommand extends ChassisCommand with HelpOption, VerboseOption {
   @override
   Future<void> run(final IShell shell, final SmartArg parentArguments) async {
     shell.requireCommand('docker');
-    await _buildDockerContainer(shell, 'Base.Dockerfile', 'base',
-        pull: pull, noCache: noCache, verbose: verbose,);
-    //Disable remaining pulls so we use the newly built minted version
-    await _buildDockerContainer(shell, 'Base_Cloud.Dockerfile', 'base-cloud',
-        pull: false, noCache: noCache, verbose: verbose,);
-    await _buildDockerContainer(shell, 'Base_Java.Dockerfile', 'base-java',
-        pull: false, noCache: noCache, verbose: verbose, anvilBase: 'base',);
     await _buildDockerContainer(
-        shell, 'Base_Java.Dockerfile', 'base-java-cloud',
-        pull: false,
-        noCache: noCache,
-        verbose: verbose,
-        anvilBase: 'base-cloud',);
+      shell,
+      'Base.Dockerfile',
+      'base',
+      pull: pull,
+      noCache: noCache,
+      verbose: verbose,
+    );
+    //Build Base Cloud
+    await _buildDockerContainer(
+      shell,
+      'Base_Cloud.Dockerfile',
+      'base-cloud',
+      pull: false,
+      noCache: noCache,
+      verbose: verbose,
+    );
+    //Build Java
+    await _buildDockerContainer(
+      shell,
+      'Base_Java.Dockerfile',
+      'base-java',
+      pull: false,
+      noCache: noCache,
+      verbose: verbose,
+      anvilBase: 'base',
+    );
+    //Build Flutter
+    await _buildDockerContainer(
+      shell,
+      'Base_Flutter.Dockerfile',
+      'base-flutter',
+      pull: false,
+      noCache: noCache,
+      verbose: verbose,
+      anvilBase: 'base',
+    );
+    //Build Java Cloud
+    await _buildDockerContainer(
+      shell,
+      'Base_Java.Dockerfile',
+      'base-java-cloud',
+      pull: false,
+      noCache: noCache,
+      verbose: verbose,
+      anvilBase: 'base-cloud',
+    );
+    //Build Flutter Cloud
+    await _buildDockerContainer(
+      shell,
+      'Base_Flutter.Dockerfile',
+      'base-flutter-cloud',
+      pull: false,
+      noCache: noCache,
+      verbose: verbose,
+      anvilBase: 'base-cloud',
+    );
   }
 }
