@@ -21,11 +21,16 @@ RUN apt-get -q update \
  && sh -c 'curl -sLk https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' \
  && sh -c 'curl -sLk https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' \
 
- && echo '---- SDK Installs' \
+ && echo '      -- Microsoft' \
+ && curl -sL 'https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb' -o 'packages-microsoft-prod.deb' \
+ && dpkg -i 'packages-microsoft-prod.deb' \
+
+ && echo '---- Installs' \
  && apt-get -q update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     dart \
     nodejs \
+    powershell \
 
  && echo '----- Build Cleanup' \
  && apt-get -q remove --purge -y \
@@ -39,5 +44,6 @@ RUN apt-get -q update \
  && node --version \
  && npm --version \
  && npx --version \
+ && pwsh --version \
  && apt-get -q clean -y && apt-get -q autoclean -y && apt-get -q autoremove -y \
  && rm -rf /var/lib/apt/lists/*
