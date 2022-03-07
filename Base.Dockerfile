@@ -44,5 +44,6 @@ RUN apt-get -q update \
  && node --version \
  && npm --version \
  && npx --version \
+ && pwsh --version \
  && apt-get -q clean -y && apt-get -q autoclean -y && apt-get -q autoremove -y \
  && rm -rf /var/lib/apt/lists/*
