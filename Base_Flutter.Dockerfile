@@ -7,8 +7,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV ANDROID_SDK_ROOT /usr/lib/android-sdk
 ENV PATH "/usr/flutter/bin:/usr/lib/android-sdk/cmdline-tools/tools/bin:$ANDROID_SDK_ROOT/cmdline-tools/bin:${PATH}"
 
-RUN apt-get -q update \
- && DEBIAN_FRONTEND=noninteractive apt-get -q install -y --no-install-recommends \
+RUN export DEBIAN_FRONTEND=noninteractive \
+ && apt-get --quiet update \
+ && apt-get --quiet --yes --no-install-recommends install \
     android-sdk \
     curl \
     unzip \
@@ -32,5 +33,7 @@ RUN echo '----- Flutter' \
  && ./bin/flutter precache \
  && ./bin/flutter doctor --android-licenses \
  && chown -R root:root ./ \
- && apt-get -q clean -y && apt-get -q autoclean -y && apt-get -q autoremove -y \
+ && apt-get --quiet --yes clean \
+ && apt-get --quiet --yes autoclean \
+ && apt-get --quiet --yes autoremove \
  && rm -rf /var/lib/apt/lists/*
