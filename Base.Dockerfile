@@ -31,6 +31,7 @@ RUN apt-get -q update \
     dart \
     nodejs \
     powershell \
+ && curl -fsSL https://aka.ms/install-artifacts-credprovider.sh \
 
  && echo '----- Build Cleanup' \
  && apt-get -q remove --purge -y \
