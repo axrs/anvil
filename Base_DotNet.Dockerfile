@@ -11,15 +11,15 @@ RUN apt-get --quiet update \
  && export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet --yes upgrade \
  && apt-get --quiet --yes --no-install-recommends install \
- 		curl \
- 		gnupg \
+    curl \
+    gnupg \
     libicu-dev \
  && echo '----- Azure Functions Core Tools' \
  && curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg >/dev/null\
  && curl https://packages.microsoft.com/config/debian/11/prod.list | tee /etc/apt/sources.list.d/microsoft-prod.list >/dev/null\
  && apt-get update \
  && apt-get --quiet --yes --no-install-recommends install \
-		azure-functions-core-tools-4 \
+    azure-functions-core-tools-4 \
  && echo '----- DotNet Core' \
  && mkdir -p "$DOTNET_ROOT" \
  && curl -sL https://dot.net/v1/dotnet-install.sh -o "$DOTNET_ROOT/dotnet-install.sh" \
