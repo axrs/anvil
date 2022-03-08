@@ -5,6 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet --yes update \
+ && apt-get --quiet --yes upgrade \
  && apt-get --quiet --yes --no-install-recommends install \
     apt-transport-https \
     ca-certificates \
