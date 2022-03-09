@@ -59,9 +59,9 @@ The following tools are contained within each build:
 
 ## Analyzing
 
-Anvil has been split into 4 separate Images in an attempt to reduce the overall size, and to narrow down the scope and
-purpose. As you can see, the Cloud infrastructure containers (the ones with the AWS and Azure CLI tools) are
-substantially larger than the others. The Docker tool [Dive](https://github.com/wagoodman/dive) can be used to
-investigate the reason for this increase.
+Anvil has been split into several Images that can be combined in an attempt to reduce the overall size, and to narrow
+down the scope and purpose. As you can see, the Cloud infrastructure containers (the ones with the AWS and Azure CLI
+tools) are substantially larger than the others. The Docker tool [Dive](https://github.com/wagoodman/dive) can be used
+to investigate the reason for this increase.
 
 > **Spoiler**: Almost 900mb (uncompressed) are the Azure and AWS CLI tools installed as Python Packages
