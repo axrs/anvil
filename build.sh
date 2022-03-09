@@ -13,6 +13,10 @@ echo 'JAVA'
 docker build --file Base_Java.Dockerfile --tag axrs/anvil:base-java .docker_context/
 docker build --file Base_Cloud.Dockerfile --tag axrs/anvil:base-java-cloud --build-arg ANVIL_BASE_TAG=base-java .docker_context/
 
+echo 'DOTNET JAVA'
+docker build --file Base_Java.Dockerfile --tag axrs/anvil:base-dotnet-java --build-arg ANVIL_BASE_TAG=base-dotnet .docker_context/
+docker build --file Base_Java.Dockerfile --tag axrs/anvil:base-dotnet-java-cloud --build-arg ANVIL_BASE_TAG=base-dotnet-cloud .docker_context/
+
 echo 'FLUTTER'
 docker build --file Base_Flutter.Dockerfile --tag axrs/anvil:base-flutter .docker_context/
 docker build --file Base_Cloud.Dockerfile --tag axrs/anvil:base-flutter-cloud --build-arg ANVIL_BASE_TAG=base-flutter .docker_context/
@@ -24,5 +28,7 @@ docker push axrs/anvil:base-dotnet
 docker push axrs/anvil:base-dotnet-cloud
 docker push axrs/anvil:base-java
 docker push axrs/anvil:base-java-cloud
+docker push axrs/anvil:base-dotnet-java
+docker push axrs/anvil:base-dotnet-java-cloud
 docker push axrs/anvil:base-flutter
 docker push axrs/anvil:base-flutter-cloud
