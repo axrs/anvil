@@ -51,7 +51,7 @@ The following tools are contained within each build:
 ### DotNet
 
 * Azure Credential Provider
-* DotNet Core 6.0
+* .Net 6.0
 
 ### Flutter
 
