@@ -10,7 +10,6 @@ ENV PATH="$DOTNET_ROOT:${PATH}"
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
-    curl \
     gnupg \
     libicu-dev \
  && echo '----- Azure Functions Core Tools' \
@@ -24,9 +23,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && curl -sL https://dot.net/v1/dotnet-install.sh -o "$DOTNET_ROOT/dotnet-install.sh" \
  && chmod u+x "$DOTNET_ROOT/dotnet-install.sh" \
  && "$DOTNET_ROOT/dotnet-install.sh" --install-dir "$DOTNET_ROOT" -c current \
- && echo '----- Build Cleanup' \
- && apt-get --quiet --purge --yes remove  \
-    curl \
  && echo "export PATH=$PATH" > /etc/environment \
  && echo '----- Verification' \
  && dotnet --list-sdks \

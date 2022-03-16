@@ -11,7 +11,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
     android-sdk \
-    curl \
     unzip \
  && echo 'PATH="/usr/flutter/bin:$ANDROID_SDK_ROOT/cmdline-tools/bin:$PATH"' >> /etc/profile \
  && echo 'export PATH' >> /etc/profile \

@@ -7,7 +7,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
-    curl \
     gnupg \
  && echo '----- Additional Package Repositories' \
  && echo '      -- Java' \
@@ -22,7 +21,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     maven \
  && echo '----- Build Cleanup' \
  && apt-get --quiet --purge --yes remove  \
-    curl \
     gnupg \
  && echo '----- Verification' \
  && clojure --version \

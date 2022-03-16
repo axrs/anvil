@@ -33,7 +33,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && echo '----- Build Cleanup' \
  && apt-get --quiet --purge --yes remove  \
     apt-transport-https \
-    curl \
     gnupg \
     unzip \
  && echo '----- Verification' \
