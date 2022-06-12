@@ -8,12 +8,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
     python3 \
-    python3-pip \
- && echo '----- Infrastructure CLIs' \
+    python3-pip
+
+RUN echo '----- Infrastructure CLIs' \
  && pip3 install --quiet --upgrade --no-cache-dir \
     awscli \
-    azure-cli \
- && echo '----- Verification' \
+    azure-cli
+
+RUN echo '----- Verification' \
  && aws --version \
  && az --version \
  && az \

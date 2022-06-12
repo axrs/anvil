@@ -2,6 +2,7 @@ FROM debian:bullseye-slim
 LABEL maintainer="Alexander Scott <xander@axrs.io>"
 LABEL description="A Docker Development Build and Test Container where my Projects are hammered into shape"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ARG DART_VERSION
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet --yes update \
@@ -22,11 +23,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && sh -c 'curl -sLk https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' \
  && echo '      -- Microsoft' \
  && curl -sL 'https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb' -o 'packages-microsoft-prod.deb' \
- && dpkg -i 'packages-microsoft-prod.deb' \
- && echo '---- Installs' \
+ && dpkg -i 'packages-microsoft-prod.deb'
+
+RUN echo '---- Installs' \
  && apt-get --quiet update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    dart \
+    dart="$DART_VERSION" \
     nodejs \
     powershell \
  && curl -fsSL https://aka.ms/install-artifacts-credprovider.sh \
@@ -34,8 +36,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet --purge --yes remove  \
     apt-transport-https \
     gnupg \
-    unzip \
- && echo '----- Verification' \
+    unzip
+
+RUN echo '----- Verification' \
  && dart --version \
  && node --version \
  && npm --version \

@@ -4,6 +4,8 @@ LABEL maintainer="Alexander Scott <xander@axrs.io>"
 LABEL description="A Docker Development Build and Test Container where my Projects are hammered into shape"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ARG FLUTTER_VERSION
+
 ENV ANDROID_SDK_ROOT /usr/lib/android-sdk
 ENV PATH "/usr/flutter/bin:/usr/lib/android-sdk/cmdline-tools/tools/bin:$ANDROID_SDK_ROOT/cmdline-tools/bin:${PATH}"
 
@@ -25,7 +27,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 RUN echo '----- Flutter' \
  && mkdir -p /usr/flutter \
  && cd /usr/flutter \
- && git clone https://github.com/flutter/flutter.git -b stable . \
+ && git clone https://github.com/flutter/flutter.git -b "$FLUTTER_VERSION" . \
  && ./bin/flutter config --no-analytics \
  && ./bin/flutter config --enable-web \
  && ./bin/flutter pub global activate webdev \
