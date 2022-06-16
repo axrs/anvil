@@ -4,22 +4,27 @@ LABEL maintainer="Alexander Scott <xander@axrs.io>"
 LABEL description="A Docker Development Build and Test Container where my Projects are hammered into shape"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ARG JAVA_VERSION
+
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
-    gnupg \
- && echo '----- Additional Package Repositories' \
+    gnupg
+
+RUN echo '----- Additional Package Repositories' \
  && echo '      -- Java' \
- && sh -c 'curl -sLk https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -' \
- && echo 'deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb bullseye main' | tee /etc/apt/sources.list.d/adoptopenjdk.list \
- && echo '---- SDK Installs' \
+ && sh -c 'curl -sLk https://apt.corretto.aws/corretto.key | apt-key add -' \
+ && echo 'deb https://apt.corretto.aws stable main' | tee /etc/apt/sources.list.d/awscorretto.list
+
+RUN echo '---- SDK Installs' \
  && apt-get --quiet update \
  && curl -sL 'https://download.clojure.org/install/linux-install-1.10.3.986.sh' | bash \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    adoptopenjdk-15-hotspot \
+    "java-$JAVA_VERSION-amazon-corretto-jdk" \
     leiningen \
-    maven \
- && echo '----- Build Cleanup' \
+    maven
+
+RUN echo '----- Build Cleanup' \
  && apt-get --quiet --purge --yes remove  \
     gnupg \
  && echo '----- Verification' \

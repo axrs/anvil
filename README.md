@@ -17,6 +17,26 @@ A list of all Docker Image Tags can be found at [Docker Hub](https://hub.docker.
 > There are a variety of different containers and combinations that can be used. The tools and frameworks included in
 > each are outlined below.
 
+* `base-dart_2.17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17)
+* `base-dart_2.17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-cloud)
+* `base-dart_2.17-dotnet_6.0`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0)
+* `base-dart_2.17-dotnet_6.0-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-cloud)
+* `base-dart_2.17-dotnet_6.0-java_15`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_15)
+* `base-dart_2.17-dotnet_6.0-java_15-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_15-cloud)
+* `base-dart_2.17-dotnet_6.0-java_17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_17)
+* `base-dart_2.17-dotnet_6.0-java_17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_17-cloud)
+* `base-dart_2.17-flutter_3.0`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-flutter_3.0)
+* `base-dart_2.17-flutter_3.0-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-flutter_3.0-cloud)
+* `base-dart_2.17-java_15`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_15)
+* `base-dart_2.17-java_15-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_15-cloud)
+* `base-dart_2.17-java_17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_17)
+* `base-dart_2.17-java_17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_17-cloud)
+
+### Legacy
+
+The following containers should be considered legacy as they have no clean way of identifying particular SDK versions.
+Sudden changes to these containers could break established projects. Where possible, the tags above should be used.
+
 * `base`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base)
 * `base-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-cloud)
 * `base-dotnet`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dotnet)
@@ -45,13 +65,14 @@ The following tools are contained within each build:
 
 ### Java
 
-* Java 15 + Maven
+* Java + Maven
 * Clojure + Leiningen
 
 ### DotNet
 
 * Azure Credential Provider
-* .Net 6.0
+* .Net SDK
+* Azure Functions Core Tools 4
 
 ### Flutter
 
