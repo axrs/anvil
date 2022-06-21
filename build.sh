@@ -21,7 +21,7 @@ built_tags+=("$full_base_tag" "$full_base_tag-cloud")
 echo 'DOTNET'
 dotnet_base_tag="$base_tag-$dotnet_tag_suffix" #base-dart_2.x-dotnet_6.x
 full_dotnet_tag="$full_base_tag-$dotnet_tag_suffix"
-docker build --file Base_DotNet.Dockerfile --build-arg DOTNET_VERSION="$dotnet_version" --tag "$full_dotnet_tag" .docker_context/
+docker build --file Base_DotNet.Dockerfile --build-arg ANVIL_BASE_TAG="$base_tag" --build-arg DOTNET_VERSION="$dotnet_version" --tag "$full_dotnet_tag" .docker_context/
 docker build --file Base_Cloud.Dockerfile --tag "$full_dotnet_tag-cloud" --build-arg ANVIL_BASE_TAG="$dotnet_base_tag" .docker_context/
 built_tags+=("$full_dotnet_tag" "$full_dotnet_tag-cloud")
 
@@ -30,7 +30,7 @@ full_java_tag="$full_base_tag-java_"
 for version in 15 17; do
 	echo "JAVA $version"
 	jt="${full_java_tag}$version"
-	docker build --file Base_Java.Dockerfile --build-arg JAVA_VERSION="$version" --tag "$jt" .docker_context/
+	docker build --file Base_Java.Dockerfile --build-arg ANVIL_BASE_TAG="$base_tag" --build-arg JAVA_VERSION="$version" --tag "$jt" .docker_context/
 	docker build --file Base_Cloud.Dockerfile --tag "$jt-cloud" --build-arg ANVIL_BASE_TAG="${java_base_tag}$version" .docker_context/
 	built_tags+=("$jt" "$jt-cloud")
 
@@ -43,7 +43,7 @@ done
 echo 'FLUTTER'
 flutter_base_tag="$base_tag-$flutter_tag_suffix"
 full_flutter_tag="$full_base_tag-$flutter_tag_suffix"
-docker build --file Base_Flutter.Dockerfile --build-arg FLUTTER_VERSION="$flutter_version" --tag "$full_flutter_tag" .docker_context/
+docker build --file Base_Flutter.Dockerfile --build-arg ANVIL_BASE_TAG="$base_tag" --build-arg FLUTTER_VERSION="$flutter_version" --tag "$full_flutter_tag" .docker_context/
 docker build --file Base_Cloud.Dockerfile --tag "$full_flutter_tag-cloud" --build-arg ANVIL_BASE_TAG="$flutter_base_tag" .docker_context/
 built_tags+=("$full_flutter_tag" "$full_flutter_tag-cloud")
 

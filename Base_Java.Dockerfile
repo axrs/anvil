@@ -1,4 +1,4 @@
-ARG ANVIL_BASE_TAG="base"
+ARG ANVIL_BASE_TAG
 FROM axrs/anvil:$ANVIL_BASE_TAG
 LABEL maintainer="Alexander Scott <xander@axrs.io>"
 LABEL description="A Docker Development Build and Test Container where my Projects are hammered into shape"
