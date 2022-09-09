@@ -8,12 +8,16 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get --quiet update \
  && apt-get --quiet --yes --no-install-recommends install \
     python3 \
-    python3-pip
+    python3-pip \
+    python3-venv
+
+ENV PATH="/root/.local/bin:${PATH}"
 
 RUN echo '----- Infrastructure CLIs' \
- && pip3 install --quiet --upgrade --no-cache-dir \
-    awscli \
-    azure-cli
+ && pip3 install --upgrade pipx \
+ && python3 -m pipx ensurepath \
+ && pipx install awscli \
+ && pipx install azure-cli
 
 RUN echo '----- Verification' \
  && aws --version \
