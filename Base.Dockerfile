@@ -15,12 +15,13 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     gnupg \
     openssh-client \
     unzip \
+    wget \
  && echo '----- Additional Package Repositories' \
  && echo '      -- Node.js' \
  && curl -sL 'https://deb.nodesource.com/setup_12.x' | bash \
  && echo '      -- Dart Package Repository' \
- && sh -c 'curl -sLk https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' \
- && sh -c 'curl -sLk https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' \
+ && sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/dart.gpg' \
+ && sh -c "echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | tee /etc/apt/sources.list.d/dart_stable.list" \
  && echo '      -- Microsoft' \
  && curl -sL 'https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb' -o 'packages-microsoft-prod.deb' \
  && dpkg -i 'packages-microsoft-prod.deb'

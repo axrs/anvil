@@ -4,11 +4,11 @@ set -euo pipefail
 built_tags=()
 
 # Various SDK versions. Note Java 15/17 are defined below
-dart_version="2.18.0-1"
+dart_version="2.18.3-1"
 dart_tag_suffix="dart_2.18"
-dotnet_version="6.0.400"
+dotnet_version="6.0.10"
 dotnet_tag_suffix="dotnet_6.0"
-flutter_version="3.3.0"
+flutter_version="3.3.5"
 flutter_tag_suffix="flutter_3.3"
 
 echo 'BASE'
