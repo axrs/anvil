@@ -17,8 +17,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     unzip \
     wget \
  && echo '----- Additional Package Repositories' \
- && echo '      -- Node.js' \
- && curl -sL 'https://deb.nodesource.com/setup_12.x' | bash \
  && echo '      -- Dart Package Repository' \
  && sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/dart.gpg' \
  && sh -c "echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | tee /etc/apt/sources.list.d/dart_stable.list" \
@@ -30,7 +28,6 @@ RUN echo '---- Installs' \
  && apt-get --quiet update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     dart="$DART_VERSION" \
-    nodejs \
     powershell \
  && curl -fsSL https://aka.ms/install-artifacts-credprovider.sh \
  && echo '----- Build Cleanup' \
@@ -41,9 +38,6 @@ RUN echo '---- Installs' \
 
 RUN echo '----- Verification' \
  && dart --version \
- && node --version \
- && npm --version \
- && npx --version \
  && pwsh --version \
  && apt-get --quiet --yes clean \
  && apt-get --quiet --yes autoclean \

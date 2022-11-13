@@ -12,7 +12,7 @@ flutter_version="3.3.5"
 flutter_tag_suffix="flutter_3.3"
 
 echo 'BASE'
-base_tag="base-$dart_tag_suffix"
+base_tag="base-2.0-$dart_tag_suffix"
 full_base_tag="axrs/anvil:$base_tag"
 docker build --pull --file Base.Dockerfile --build-arg DART_VERSION="$dart_version" --tag "$full_base_tag" .docker_context/
 docker build --file Base_Cloud.Dockerfile --tag "$full_base_tag-cloud" --build-arg ANVIL_BASE_TAG="$base_tag" .docker_context/
