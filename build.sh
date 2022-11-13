@@ -11,6 +11,8 @@ dotnet_tag_suffix="dotnet_6.0"
 flutter_version="3.3.5"
 flutter_tag_suffix="flutter_3.3"
 
+mkdir -p .docker_context
+
 echo 'BASE'
 base_tag="base-2.0-$dart_tag_suffix"
 full_base_tag="axrs/anvil:$base_tag"
