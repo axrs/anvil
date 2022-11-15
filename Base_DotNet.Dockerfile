@@ -9,16 +9,16 @@ ENV PATH="$DOTNET_ROOT:${PATH}"
 ARG DOTNET_VERSION
 
 RUN export DEBIAN_FRONTEND=noninteractive \
- && apt-get --quiet update \
- && apt-get --quiet --yes --no-install-recommends install \
+ && apt --quiet update \
+ && apt --quiet --yes --no-install-recommends install \
     gnupg \
     libicu-dev
 
 RUN echo '----- Azure Functions Core Tools' \
  && curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg >/dev/null \
  && curl https://packages.microsoft.com/config/debian/11/prod.list | tee /etc/apt/sources.list.d/microsoft-prod.list >/dev/null \
- && apt-get --quiet update \
- && apt-get --quiet --yes --no-install-recommends install \
+ && apt --quiet update \
+ && apt --quiet --yes --no-install-recommends install \
     azure-functions-core-tools-4
 
 RUN echo '----- DotNet Core' \
@@ -26,13 +26,15 @@ RUN echo '----- DotNet Core' \
  && curl -sL https://dot.net/v1/dotnet-install.sh -o "$DOTNET_ROOT/dotnet-install.sh" \
  && chmod u+x "$DOTNET_ROOT/dotnet-install.sh" \
  && "$DOTNET_ROOT/dotnet-install.sh" --install-dir "$DOTNET_ROOT" --version "$DOTNET_VERSION" \
- && echo "export PATH=$PATH" > /etc/environment
+ && echo "export PATH=$PATH" > /etc/environment \
+ # Azure Artifacts Credential Provider
+ && curl -fsSL https://aka.ms/install-artifacts-credprovider.sh
 
 RUN echo '----- Verification' \
  && dotnet --list-sdks \
  && dotnet --list-runtimes \
  && func --version \
- && apt-get --quiet --yes clean \
- && apt-get --quiet --yes autoclean \
- && apt-get --quiet --yes autoremove \
+ && apt --quiet --yes clean \
+ && apt --quiet --yes autoclean \
+ && apt --quiet --yes autoremove \
  && rm -rf /var/lib/apt/lists/*

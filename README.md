@@ -54,7 +54,6 @@ The following tools are contained within each build:
 
 * Git
 * Dart
-* Node.js
 * Powershell
 * Bash
 
