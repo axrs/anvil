@@ -12,63 +12,31 @@ Base Image [Debian:bullseye-slim](https://hub.docker.com/_/debian)
 
 ## Tags
 
-A list of all Docker Image Tags can be found at [Docker Hub](https://hub.docker.com/repository/docker/axrs/anvil/tags?page=1\&ordering=-name)
+A list of all Docker Image Tags can be found
+at [Docker Hub](https://hub.docker.com/repository/docker/axrs/anvil/tags?page=1\&ordering=-name)
 
 > There are a variety of different containers and combinations that can be used. The tools and frameworks included in
 > each are outlined below.
 
-* `base-dart_2.17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17)
-* `base-dart_2.17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-cloud)
-* `base-dart_2.17-dotnet_6.0`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0)
-* `base-dart_2.17-dotnet_6.0-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-cloud)
-* `base-dart_2.17-dotnet_6.0-java_15`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_15)
-* `base-dart_2.17-dotnet_6.0-java_15-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_15-cloud)
-* `base-dart_2.17-dotnet_6.0-java_17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_17)
-* `base-dart_2.17-dotnet_6.0-java_17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-dotnet_6.0-java_17-cloud)
-* `base-dart_2.17-flutter_3.0`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-flutter_3.0)
-* `base-dart_2.17-flutter_3.0-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-flutter_3.0-cloud)
-* `base-dart_2.17-java_15`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_15)
-* `base-dart_2.17-java_15-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_15-cloud)
-* `base-dart_2.17-java_17`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_17)
-* `base-dart_2.17-java_17-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dart_2.17-java_17-cloud)
-
-### Legacy
-
-The following containers should be considered legacy as they have no clean way of identifying particular SDK versions.
-Sudden changes to these containers could break established projects. Where possible, the tags above should be used.
-
-* `base`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base)
-* `base-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-cloud)
-* `base-dotnet`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dotnet)
-* `base-dotnet-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dotnet-cloud)
-* `base-dotnet-java`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dotnet-java)
-* `base-dotnet-java-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-dotnet-java-cloud)
-* `base-flutter`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-flutter)
-* `base-flutter-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-flutter-cloud)
-* `base-java`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-java)
-* `base-java-cloud`: ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/axrs/anvil/base-java-cloud)
-
 The following tools are contained within each build:
 
-### Base
+### Dart
 
-* Git
-* Dart
-* Node.js
-* Powershell
 * Bash
-
-### Cloud
-
-* AWS CLI
-* Azure CLI
+* Dart SDK
+* Git
+* Powershell
 
 ### Java
+
+Everything from the `dart-*` image plus:
 
 * Java + Maven
 * Clojure + Leiningen
 
 ### DotNet
+
+Everything from the `dart-*` image plus:
 
 * Azure Credential Provider
 * .Net SDK
@@ -76,7 +44,16 @@ The following tools are contained within each build:
 
 ### Flutter
 
+Everything from the `dart-*` image plus:
+
 * Flutter
+
+### <tag>-Cloud
+
+Everything from image <tag> plus:
+
+* AWS CLI @ 1.x
+* Azure CLI
 
 ## Analyzing
 
@@ -85,4 +62,21 @@ down the scope and purpose. As you can see, the Cloud infrastructure containers 
 tools) are substantially larger than the others. The Docker tool [Dive](https://github.com/wagoodman/dive) can be used
 to investigate the reason for this increase.
 
-> **Spoiler**: Almost 900mb (uncompressed) are the Azure and AWS CLI tools installed as Python Packages
+## FAQ
+
+### Why is everything based of the Dart image?
+
+Each of my projects contain various automation scripts and utilities. Historically, these were written with Bash,
+however a need surfaced for enhanced cross-platform development support. Dart was selected as a high-level wrapper for
+its ease of use, performance, and native bridges.
+
+### Why are the Cloud Images so large?
+
+The Cloud images contain both the AWS and Azure CLIs. Each of which is built using Python. The Azure CLI however
+includes the Azure Python SDK and many unnecessary (even unused?) API versions of the `azure-mgmt-network` SDK.
+[Azure SDK Trim](https://github.com/clumio-code/azure-sdk-trim) could be used to remove some of this bloat, however it
+comes with a risk that something may not work as intended.
+
+[Azure-CLI Weight Issue](https://github.com/Azure/azure-cli/issues/7387)
+
+> **Spoiler**: Almost 900mb (uncompressed) is the Azure CLI
