@@ -8,7 +8,6 @@ built_tags=()
 # Various SDK versions. Note Java 15/17 are defined below
 dart_version="2.18.4-1"
 clojure_version="1.11.1.1182"
-dotnet_version="6.0.403"
 flutter_version="3.3.8"
 tag_prefix="axrs/anvil"
 
@@ -30,8 +29,27 @@ for version_tag in "2" "2.18" "$dart_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
+dotnet_version="6.0.403"
 echo "DOTNET $dotnet_version from $base_tag"
 for version_tag in "6" "6.0" "$dotnet_version"; do
+  root_tag="$tag_prefix:dotnet-$version_tag"
+  docker build \
+    --file DotNet.Dockerfile \
+    --build-arg ANVIL_BASE_TAG=$base_tag \
+    --build-arg DOTNET_VERSION=$dotnet_version \
+    --tag $root_tag \
+    .docker_context/
+  docker build \
+    --file Cloud.Dockerfile \
+    --build-arg ANVIL_BASE_TAG=$root_tag \
+    --tag "$root_tag-cloud" \
+    .docker_context/
+  built_tags+=("$root_tag" "$root_tag-cloud")
+done
+
+dotnet_version="7.0.100"
+echo "DOTNET $dotnet_version from $base_tag"
+for version_tag in "7" "7.0" "$dotnet_version"; do
   root_tag="$tag_prefix:dotnet-$version_tag"
   docker build \
     --file DotNet.Dockerfile \
