@@ -6,9 +6,9 @@ mkdir -p .docker_context
 built_tags=()
 
 # Various SDK versions. Note Java 15/17 are defined below
-dart_version="2.18.4-1"
-clojure_version="1.11.1.1182"
-flutter_version="3.3.8"
+dart_version="2.18.5-1"
+clojure_version="1.11.1.1208"
+flutter_version="3.3.9"
 tag_prefix="axrs/anvil"
 
 base_tag="$tag_prefix:dart-$dart_version"
@@ -29,7 +29,7 @@ for version_tag in "2" "2.18" "$dart_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
-dotnet_version="6.0.403"
+dotnet_version="6.0.404"
 echo "DOTNET $dotnet_version from $base_tag"
 for version_tag in "6" "6.0" "$dotnet_version"; do
   root_tag="$tag_prefix:dotnet-$version_tag"
@@ -47,7 +47,7 @@ for version_tag in "6" "6.0" "$dotnet_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
-dotnet_version="7.0.100"
+dotnet_version="7.0.101"
 echo "DOTNET $dotnet_version from $base_tag"
 for version_tag in "7" "7.0" "$dotnet_version"; do
   root_tag="$tag_prefix:dotnet-$version_tag"
