@@ -7,8 +7,8 @@ built_tags=()
 
 # Various SDK versions. Note Java 15/17 are defined below
 dart_version="2.18.5-1"
+flutter_version="3.3.9" # Note: Flutter versions are tied to dart versions
 clojure_version="1.11.1.1208"
-flutter_version="3.3.9"
 tag_prefix="axrs/anvil"
 
 base_tag="$tag_prefix:dart-$dart_version"
