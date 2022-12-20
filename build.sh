@@ -6,8 +6,8 @@ mkdir -p .docker_context
 built_tags=()
 
 # Various SDK versions. Note Java 15/17 are defined below
-dart_version="2.18.5-1"
-flutter_version="3.3.9" # Note: Flutter versions are tied to dart versions
+dart_version="2.18.6-1"
+flutter_version="3.3.10" # Note: Flutter versions are tied to dart versions
 clojure_version="1.11.1.1208"
 tag_prefix="axrs/anvil"
 
