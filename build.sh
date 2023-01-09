@@ -65,7 +65,7 @@ for version_tag in "7" "7.0" "$dotnet_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
-for version_tag in "15" "17"; do
+for version_tag in "11" "15" "17"; do
   echo "JAVA $version_tag from $base_tag"
   root_tag="$tag_prefix:java-$version_tag"
 	docker build \
