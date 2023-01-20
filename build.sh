@@ -29,7 +29,7 @@ for version_tag in "2" "2.18" "$dart_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
-dotnet_version="6.0.404"
+dotnet_version="6.0.405"
 echo "DOTNET $dotnet_version from $base_tag"
 for version_tag in "6" "6.0" "$dotnet_version"; do
   root_tag="$tag_prefix:dotnet-$version_tag"
@@ -47,7 +47,7 @@ for version_tag in "6" "6.0" "$dotnet_version"; do
   built_tags+=("$root_tag" "$root_tag-cloud")
 done
 
-dotnet_version="7.0.101"
+dotnet_version="7.0.102"
 echo "DOTNET $dotnet_version from $base_tag"
 for version_tag in "7" "7.0" "$dotnet_version"; do
   root_tag="$tag_prefix:dotnet-$version_tag"
