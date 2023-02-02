@@ -5,6 +5,13 @@ mkdir -p .docker_context
 # Holds a list of tags that were built for pushing at the end of the job
 built_tags=()
 
+declare -A dart_version
+dart_version=(["2"]="2.19.0-1" ["2.19"]="2.19.0-1" ["2.18"]="2.18.6-1")
+declare -A flutter_version
+flutter_version=(["3"]="3.7.0" ["3.7"]="3.7.0" ["3.3"]="3.3.10")
+declare -A flutter_dart_version
+flutter_dart_version=(["3.7.0"]="2.19.0-1" ["3.3.10"]="2.18.6-1")
+
 # Various SDK versions. Note Java 15/17 are defined below
 dart_version="2.19.0-1"
 flutter_version="3.7.0" # Note: Flutter versions are tied to dart versions

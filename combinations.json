@@ -1,0 +1,235 @@
+[
+  {
+    "dartVersion": "2.18.6-1",
+    "tags": [
+      "dart-2.18",
+      "dart-2.18.6"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "11",
+    "tags": [
+      "dart-2.18-java-11",
+      "dart-2.18.6-java-11"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "11",
+    "clojureVersion": "1.11.1.1208",
+    "tags": [
+      "dart-2.18-java-11-clojure-1",
+      "dart-2.18-java-11-clojure-1.11",
+      "dart-2.18-java-11-clojure-1.11.1",
+      "dart-2.18.6-java-11-clojure-1",
+      "dart-2.18.6-java-11-clojure-1.11",
+      "dart-2.18.6-java-11-clojure-1.11.1"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "15",
+    "tags": [
+      "dart-2.18-java-15",
+      "dart-2.18.6-java-15"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "15",
+    "clojureVersion": "1.11.1.1208",
+    "tags": [
+      "dart-2.18-java-15-clojure-1",
+      "dart-2.18-java-15-clojure-1.11",
+      "dart-2.18-java-15-clojure-1.11.1",
+      "dart-2.18.6-java-15-clojure-1",
+      "dart-2.18.6-java-15-clojure-1.11",
+      "dart-2.18.6-java-15-clojure-1.11.1"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "17",
+    "tags": [
+      "dart-2.18-java-17",
+      "dart-2.18.6-java-17"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "javaVersion" : "17",
+    "clojureVersion": "1.11.1.1208",
+    "tags": [
+      "dart-2.18-java-17-clojure-1",
+      "dart-2.18-java-17-clojure-1.11",
+      "dart-2.18-java-17-clojure-1.11.1",
+      "dart-2.18.6-java-17-clojure-1",
+      "dart-2.18.6-java-17-clojure-1.11",
+      "dart-2.18.6-java-17-clojure-1.11.1"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "dotnetVersion": "6.0.405",
+    "tags": [
+      "dart-2.18-dotnet-6",
+      "dart-2.18-dotnet-6.0",
+      "dart-2.18-dotnet-6.0.405",
+      "dart-2.18.6-dotnet-6",
+      "dart-2.18.6-dotnet-6.0",
+      "dart-2.18.6-dotnet-6.0.405"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "dotnetVersion": "7.0.102",
+    "tags": [
+      "dart-2.18-dotnet-7",
+      "dart-2.18-dotnet-7.0",
+      "dart-2.18-dotnet-7.0.102",
+      "dart-2.18.6-dotnet-7",
+      "dart-2.18.6-dotnet-7.0",
+      "dart-2.18.6-dotnet-7.0.102"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "flutterVersion": "3.3.10",
+    "tags": [
+      "dart-2.18-flutter-3",
+      "dart-2.18-flutter-3.3",
+      "dart-2.18-flutter-3.3.10",
+      "dart-2.18.6-flutter-3",
+      "dart-2.18.6-flutter-3.3",
+      "dart-2.18.6-flutter-3.3.10"
+    ]
+  },
+  {
+    "dartVersion": "2.18.6-1",
+    "flutterVersion": "3.3.10",
+    "androidVersion": "33",
+    "androidBuildToolsVersion": "33.0.1",
+    "tags": [
+      "dart-2.18-flutter-3-android-33",
+      "dart-2.18-flutter-3.3-android-33",
+      "dart-2.18-flutter-3.3.10-android-33",
+      "dart-2.18.6-flutter-3-android-33",
+      "dart-2.18.6-flutter-3.3-android-33",
+      "dart-2.18.6-flutter-3.3.10-android-33"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "tags": [
+      "dart-2",
+      "dart-2.19",
+      "dart-2.19.0"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "javaVersion" : "11",
+    "tags": [
+      "dart-2-java-11",
+      "dart-2.19-java-11",
+      "dart-2.19.0-java-11"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "javaVersion" : "15",
+    "tags": [
+      "dart-2-java-15",
+      "dart-2.19-java-15",
+      "dart-2.19.0-java-15"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "javaVersion" : "17",
+    "tags": [
+      "dart-2-java-17",
+      "dart-2.19-java-17",
+      "dart-2.19.0-java-17"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "javaVersion" : "17",
+    "clojureVersion": "1.11.1.1208",
+    "tags": [
+      "dart-2-java-17-clojure-1",
+      "dart-2-java-17-clojure-1.11",
+      "dart-2-java-17-clojure-1.11.1",
+      "dart-2.19-java-17-clojure-1",
+      "dart-2.19-java-17-clojure-1.11",
+      "dart-2.19-java-17-clojure-1.11.1",
+      "dart-2.19.0-java-17-clojure-1",
+      "dart-2.19.0-java-17-clojure-1.11",
+      "dart-2.19.0-java-17-clojure-1.11.1"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "dotnetVersion": "6.0.405",
+    "tags": [
+      "dart-2-dotnet-6",
+      "dart-2-dotnet-6.0",
+      "dart-2-dotnet-6.0.405",
+      "dart-2.19-dotnet-6",
+      "dart-2.19-dotnet-6.0",
+      "dart-2.19-dotnet-6.0.405",
+      "dart-2.19.0-dotnet-6",
+      "dart-2.19.0-dotnet-6.0",
+      "dart-2.19.0-dotnet-6.0.405"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "dotnetVersion": "7.0.102",
+    "tags": [
+      "dart-2-dotnet-7",
+      "dart-2-dotnet-7.0",
+      "dart-2-dotnet-7.0.102",
+      "dart-2.19-dotnet-7",
+      "dart-2.19-dotnet-7.0",
+      "dart-2.19-dotnet-7.0.102",
+      "dart-2.19.0-dotnet-7",
+      "dart-2.19.0-dotnet-7.0",
+      "dart-2.19.0-dotnet-7.0.102"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "flutterVersion": "3.7.0",
+    "tags": [
+      "dart-2-flutter-3",
+      "dart-2-flutter-3.7",
+      "dart-2-flutter-3.7.0",
+      "dart-2.19-flutter-3",
+      "dart-2.19-flutter-3.7",
+      "dart-2.19-flutter-3.7.0",
+      "dart-2.19.0-flutter-3",
+      "dart-2.19.0-flutter-3.7",
+      "dart-2.19.0-flutter-3.7.0"
+    ]
+  },
+  {
+    "dartVersion": "2.19.0-1",
+    "flutterVersion": "3.7.0",
+    "androidVersion": "33",
+    "androidBuildToolsVersion": "33.0.1",
+    "tags": [
+      "dart-2-flutter-3-android-33",
+      "dart-2-flutter-3.7-android-33",
+      "dart-2-flutter-3.7.0-android-33",
+      "dart-2.19-flutter-3-android-33",
+      "dart-2.19-flutter-3.7-android-33",
+      "dart-2.19-flutter-3.7.0-android-33",
+      "dart-2.19.0-flutter-3-android-33",
+      "dart-2.19.0-flutter-3.7-android-33",
+      "dart-2.19.0-flutter-3.7.0-android-33"
+    ]
+  }
+]
