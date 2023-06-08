@@ -3,6 +3,8 @@ set -euo pipefail
 
 docker images -a | grep "anvil" | awk '{print $3}' | xargs docker rmi --force || true
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # Build and tag new containers
 readarray -t combinations < <(jq -c '.[]' combinations.json)
 IFS=$'\n'
@@ -20,7 +22,6 @@ for combination in "${combinations[@]}"; do
 		docker build \
 			--pull \
 			--file Anvil.Dockerfile \
-			--platform linux/amd64 \
 			--build-arg DART_VERSION="$dart_version" \
 			--build-arg INCLUDE_CLOUD="false" \
 			--build-arg JAVA_VERSION="$java_version" \
@@ -33,7 +34,6 @@ for combination in "${combinations[@]}"; do
 			scripts/
 		docker build \
 			--file Anvil.Dockerfile \
-			--platform linux/amd64 \
 			--build-arg DART_VERSION="$dart_version" \
 			--build-arg INCLUDE_CLOUD="true" \
 			--build-arg JAVA_VERSION="$java_version" \
