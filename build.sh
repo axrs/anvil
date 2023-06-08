@@ -20,6 +20,7 @@ for combination in "${combinations[@]}"; do
 		docker build \
 			--pull \
 			--file Anvil.Dockerfile \
+			--platform linux/amd64 \
 			--build-arg DART_VERSION="$dart_version" \
 			--build-arg INCLUDE_CLOUD="false" \
 			--build-arg JAVA_VERSION="$java_version" \
@@ -32,6 +33,7 @@ for combination in "${combinations[@]}"; do
 			scripts/
 		docker build \
 			--file Anvil.Dockerfile \
+			--platform linux/amd64 \
 			--build-arg DART_VERSION="$dart_version" \
 			--build-arg INCLUDE_CLOUD="true" \
 			--build-arg JAVA_VERSION="$java_version" \
@@ -49,4 +51,3 @@ unset IFS
 
 # Push all tags
 docker push axrs/anvil --all-tags
-
