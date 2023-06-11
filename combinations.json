@@ -221,11 +221,7 @@
     "androidVersion": "33",
     "androidBuildToolsVersion": "33.0.1",
     "tags": [
-      "dart-2-flutter-3-android-33",
-      "dart-2-flutter-3.7-android-33",
       "dart-2-flutter-3.7.0-android-33",
-      "dart-2.19-flutter-3-android-33",
-      "dart-2.19-flutter-3.7-android-33",
       "dart-2.19-flutter-3.7.0-android-33",
       "dart-2.19.0-flutter-3-android-33",
       "dart-2.19.0-flutter-3.7-android-33",
@@ -233,11 +229,34 @@
     ]
   },
   {
+    "dartVersion": "2.19.6",
+    "flutterVersion": "3.7.12",
+    "androidVersion": "33",
+    "androidBuildToolsVersion": "33.0.1",
+    "tags": [
+      "dart-2-flutter-3-android-33",
+      "dart-2-flutter-3.7-android-33",
+      "dart-2-flutter-3.7.12-android-33",
+      "dart-2.19-flutter-3-android-33",
+      "dart-2.19-flutter-3.7-android-33",
+      "dart-2.19-flutter-3.7.12-android-33",
+      "dart-2.19.6-flutter-3-android-33",
+      "dart-2.19.6-flutter-3.7-android-33",
+      "dart-2.19.6-flutter-3.7.12-android-33"
+    ]
+  },
+  {
     "dartVersion": "3.0.3",
+    "tags": [
+      "dart-3.0.3"
+    ]
+  },
+  {
+    "dartVersion": "3.0.4",
     "tags": [
       "dart-3",
       "dart-3.0",
-      "dart-3.0.3"
+      "dart-3.0.4"
     ]
   },
   {
@@ -248,11 +267,28 @@
       "dart-3-flutter-3.10",
       "dart-3-flutter-3.10.4",
       "dart-3.0-flutter-3",
-      "dart-3.0-flutter-3.7",
-      "dart-3.0-flutter-3.7.0",
+      "dart-3.0-flutter-3.10",
+      "dart-3.0-flutter-3.10.4",
       "dart-3.0.3-flutter-3",
       "dart-3.0.3-flutter-3.10",
       "dart-3.0.3-flutter-3.10.4"
+    ]
+  },
+  {
+    "dartVersion": "3.0.3",
+    "flutterVersion": "3.10.4",
+    "androidVersion": "33",
+    "androidBuildToolsVersion": "33.0.1",
+    "tags": [
+      "dart-3-flutter-3-android-33",
+      "dart-3-flutter-3.10-android-33",
+      "dart-3-flutter-3.10.4-android-33",
+      "dart-3.0-flutter-3-android-33",
+      "dart-3.0-flutter-3.10-android-33",
+      "dart-3.0-flutter-3.10.4-android-33",
+      "dart-3.0.3-flutter-3-android-33",
+      "dart-3.0.3-flutter-3.10-android-33",
+      "dart-3.0.3-flutter-3.10.4-android-33"
     ]
   }
 ]
