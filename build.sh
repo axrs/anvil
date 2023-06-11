@@ -3,6 +3,8 @@ set -euo pipefail
 
 docker images -a | grep "anvil" | awk '{print $3}' | xargs docker rmi --force || true
 
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # Build and tag new containers
 readarray -t combinations < <(jq -c '.[]' combinations.json)
 IFS=$'\n'
@@ -49,4 +51,3 @@ unset IFS
 
 # Push all tags
 docker push axrs/anvil --all-tags
-
